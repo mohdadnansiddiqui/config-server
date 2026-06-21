@@ -1,12 +1,13 @@
 server:
   port: 8081
 
-
+spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ecommerce_auth
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,16 +15,19 @@ server:
     properties:
       hibernate:
         format_sql: true
+
   sql:
     init:
       mode: never
+
   kafka:
     bootstrap-servers:
-    - localhost:9092
+      - localhost:9092
 
 app:
   cors:
     allowed-origins: http://localhost:4200
+
   jwt:
     secret: ${JWT_SECRET:ZWNvbW1lcmNlLW1pY3Jvc2VydmljZXMtamF2YS0yMS1zcHJpbmctYm9vdC0zLWp3dC1zaGFyZWQtc2VjcmV0LWtleS0yMDI2}
     access-token-minutes: 30
@@ -32,7 +36,6 @@ app:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
   api-docs:
     path: /v3/api-docs
-
-
