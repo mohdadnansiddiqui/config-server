@@ -7,7 +7,7 @@
   #      register-with-eureka: true
   #      service-url:
   #        default-zone: http://localhost:8761/eureka
-  eureka:
+eureka:
   client:
     service-url:
       defaultZone: http://host.docker.internal:8761/eureka/
