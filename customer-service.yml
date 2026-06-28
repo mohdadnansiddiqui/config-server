@@ -4,7 +4,7 @@ server:
 spring:
   
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/ecommerce_customer
+    url: ${DB_URL:jdbc:postgresql://host.docker.internal:5432/ecommerce_customer}
     username: postgres
     password: root
   jpa:
