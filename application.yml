@@ -10,4 +10,4 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://service-registry/eureka/
+      defaultZone: http://host.docker.internal:8761/eureka/
