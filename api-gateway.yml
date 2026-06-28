@@ -118,6 +118,12 @@ spring:
                 - Path=/review-service/v3/api-docs
               filters:
                 - RewritePath=/review-service/(?<segment>.*), /${segment}
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: Auth Service
+        url: /auth-service/v3/api-docs
 
 server:
   port: 9000
