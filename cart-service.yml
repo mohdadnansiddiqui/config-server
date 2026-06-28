@@ -37,4 +37,4 @@ springdoc:
 
 services:
   product:
-    url: http://localhost:8083
+    url: http://product-service
