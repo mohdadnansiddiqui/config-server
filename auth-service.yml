@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/ecommerce_auth
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ecommerce_auth}
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
