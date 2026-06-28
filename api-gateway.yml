@@ -124,6 +124,21 @@ springdoc:
     urls:
       - name: Auth Service
         url: /auth-service/v3/api-docs
-
+      - name: Product Service
+        url: /product-service/v3/api-docs
+      - name: Cart Service
+        url: /cart-service/v3/api-docs
+      - name: Customer Service
+        url: /customer-service/v3/api-docs
+      - name: Inventory Service
+        url: /inventory-service/v3/api-docs
+      - name: Order Service
+        url: /order-service/v3/api-docs
+      - name: Payment Service
+        url: /payment-service/v3/api-docs
+      - name: Review Service
+        url: /review-service/v3/api-docs
+      - name: Notification Service
+        url: /notification-service/v3/api-docs
 server:
   port: 9000
