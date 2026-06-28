@@ -59,7 +59,7 @@ spring:
             - id: auth-service-docs
               uri: lb://AUTH-SERVICE
               predicates:
-                - Path=/auth-service/swagger-ui/index.html
+                - Path=/auth-service/v3/api-docs
               filters:
                 - RewritePath=/auth-service/(?<segment>.*), /${segment}
 
