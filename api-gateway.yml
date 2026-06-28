@@ -1,47 +1,123 @@
 spring:
-  
-
   cloud:
     gateway:
       server:
         webflux:
           routes:
+            # ===========================
+            # Existing API Routes
+            # ===========================
             - id: auth-service
               uri: lb://AUTH-SERVICE
               predicates:
                 - Path=/api/v1/auth/**,/api/v1/users/**,/api/v1/users
+
             - id: product-service
               uri: lb://PRODUCT-SERVICE
               predicates:
                 - Path=/api/v1/products,/api/v1/products/**
+
             - id: cart-service
               uri: lb://CART-SERVICE
               predicates:
                 - Path=/api/v1/carts/**
+
             - id: customer-service
               uri: lb://CUSTOMER-SERVICE
               predicates:
                 - Path=/api/v1/customers,/api/v1/customers/**
+
             - id: inventory-service
               uri: lb://INVENTORY-SERVICE
               predicates:
                 - Path=/api/v1/inventory,/api/v1/inventory/**
+
             - id: order-service
               uri: lb://ORDER-SERVICE
               predicates:
                 - Path=/api/v1/orders,/api/v1/orders/**
+
             - id: notifications-service
               uri: lb://NOTIFICATION-SERVICE
               predicates:
                 - Path=/api/v1/notifications,/api/v1/notifications/**
+
             - id: payment-service
               uri: lb://PAYMENT-SERVICE
               predicates:
                 - Path=/api/v1/payments,/api/v1/payments/**
+
             - id: review-service
               uri: lb://REVIEW-SERVICE
               predicates:
                 - Path=/api/v1/reviews,/api/v1/reviews/**
+
+            # ===========================
+            # Swagger Routes
+            # ===========================
+
+            - id: auth-service-docs
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/auth-service/v3/api-docs
+              filters:
+                - RewritePath=/auth-service/(?<segment>.*), /${segment}
+
+            - id: product-service-docs
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/product-service/v3/api-docs
+              filters:
+                - RewritePath=/product-service/(?<segment>.*), /${segment}
+
+            - id: cart-service-docs
+              uri: lb://CART-SERVICE
+              predicates:
+                - Path=/cart-service/v3/api-docs
+              filters:
+                - RewritePath=/cart-service/(?<segment>.*), /${segment}
+
+            - id: customer-service-docs
+              uri: lb://CUSTOMER-SERVICE
+              predicates:
+                - Path=/customer-service/v3/api-docs
+              filters:
+                - RewritePath=/customer-service/(?<segment>.*), /${segment}
+
+            - id: inventory-service-docs
+              uri: lb://INVENTORY-SERVICE
+              predicates:
+                - Path=/inventory-service/v3/api-docs
+              filters:
+                - RewritePath=/inventory-service/(?<segment>.*), /${segment}
+
+            - id: order-service-docs
+              uri: lb://ORDER-SERVICE
+              predicates:
+                - Path=/order-service/v3/api-docs
+              filters:
+                - RewritePath=/order-service/(?<segment>.*), /${segment}
+
+            - id: notification-service-docs
+              uri: lb://NOTIFICATION-SERVICE
+              predicates:
+                - Path=/notification-service/v3/api-docs
+              filters:
+                - RewritePath=/notification-service/(?<segment>.*), /${segment}
+
+            - id: payment-service-docs
+              uri: lb://PAYMENT-SERVICE
+              predicates:
+                - Path=/payment-service/v3/api-docs
+              filters:
+                - RewritePath=/payment-service/(?<segment>.*), /${segment}
+
+            - id: review-service-docs
+              uri: lb://REVIEW-SERVICE
+              predicates:
+                - Path=/review-service/v3/api-docs
+              filters:
+                - RewritePath=/review-service/(?<segment>.*), /${segment}
 
 server:
   port: 9000
