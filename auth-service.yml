@@ -1,5 +1,5 @@
 dummy:
-  value: testing
+  value: adnan
 server:
   port: 8081
 
