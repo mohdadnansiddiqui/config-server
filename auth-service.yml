@@ -1,3 +1,5 @@
+dummy:
+  value: testing
 server:
   port: 8081
 
