@@ -39,3 +39,9 @@ springdoc:
 
   api-docs:
     path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
