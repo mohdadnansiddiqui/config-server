@@ -2,11 +2,11 @@ server:
   port: 8082
 
 spring:
-  
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/ecommerce_customer}
     username: postgres
     password: root
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,19 +14,19 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
   sql:
     init:
       mode: never
-   kafka:
-    bootstrap-servers: localhost:29092
 
+  kafka:
+    bootstrap-servers: localhost:29092
     consumer:
       group-id: practice
       auto-offset-reset: earliest
       enable-auto-commit: true
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-
       properties:
         spring:
           json:
@@ -36,6 +36,7 @@ spring:
 app:
   cors:
     allowed-origins: http://localhost:4200
+
   jwt:
     secret: ${JWT_SECRET:ZWNvbW1lcmNlLW1pY3Jvc2VydmljZXMtamF2YS0yMS1zcHJpbmctYm9vdC0zLWp3dC1zaGFyZWQtc2VjcmV0LWtleS0yMDI2}
     access-token-minutes: 30
@@ -44,5 +45,6 @@ app:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
   api-docs:
     path: /v3/api-docs
