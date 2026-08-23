@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/ecommerce_auth}
-    username: postgres
-    password: admin
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -21,7 +21,7 @@ spring:
       mode: never
 
   kafka:
-    bootstrap-servers: localhost:29092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -39,12 +39,12 @@ spring:
 
 app:
   cors:
-    allowed-origins: http://localhost:4200
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:4200}
 
   jwt:
     secret: ${JWT_SECRET:ZWNvbW1lcmNlLW1pY3Jvc2VydmljZXMtamF2YS0yMS1zcHJpbmctYm9vdC0zLWp3dC1zaGFyZWQtc2VjcmV0LWtleS0yMDI2}
-    access-token-minutes: 30
-    refresh-token-days: 7
+    access-token-minutes: ${JWT_ACCESS_TOKEN_MINUTES:30}
+    refresh-token-days: ${JWT_REFRESH_TOKEN_DAYS:7}
 
 springdoc:
   swagger-ui:
