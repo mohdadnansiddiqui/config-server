@@ -63,7 +63,7 @@ spring:
             - id: category-service
               uri: lb://CATEGORY-SERVICE
               predicates:
-                - Path=/api/v1/categories,/api/v1/categories/**
+                - Path=/api/v1/categories,/api/v1/categories/**,/api/v1/sub-categories,/api/v1/sub-categories/**
 
             # ===========================
             # Swagger Routes
